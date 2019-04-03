@@ -1,11 +1,11 @@
-- name: Create a sandbox instance
+- name: Create a demo instance
   hosts: localhost
   gather_facts: False
   vars:
-    key_name: my_keypair
-    instance_type: m1.small
+    key_name: besst-dev
+    instance_type: c4.xlarge
     security_group: my_securitygroup
-    image: my_ami_id
+    image: ami-06364f70ec759cbe1
     region: us-east-1
   tasks:
     - name: Launch instance
@@ -16,8 +16,8 @@
          image: "{{ image }}"
          wait: true
          region: "{{ region }}"
-         vpc_subnet_id: subnet-29e63245
-         assign_public_ip: yes
+         vpc_subnet_id: subnet-0d9d3b3457a21bdbf
+         assign_public_ip: no
       register: ec2
 
     - name: Add new instance to host group
@@ -40,8 +40,7 @@
   become: True
   gather_facts: True
   roles:
-    - my_awesome_role
-    - my_awesome_test
+    - Hets-ec2-s3-access-role
 
 - name: Terminate instances
   hosts: localhost
@@ -49,5 +48,5 @@
   tasks:
     - name: Terminate instances that were previously launched
       ec2:
-        state: 'absent'
+        state: 'present'
         instance_ids: '{{ ec2.instance_ids }}'
