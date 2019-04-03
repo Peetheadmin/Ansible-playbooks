@@ -9,8 +9,8 @@
     ec2_region: us-east-1
     ec2_image: ami-06364f70ec759cbe1
     ec2_instance_type: c4.xlarge
-    ec2_keypair: djohnson
-    ec2_security_group: sg-00249f68966f01736
+    ec2_keypair: besst-dev
+    ec2_security_group: default
     ec2_instance_count: 1
     ec2_tag: demo_video
     wait_for_port: 22
