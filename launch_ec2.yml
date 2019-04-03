@@ -6,6 +6,7 @@
   vars:
     ec2_access_key:
     ec2_secret_key:
+    vpc_id: vpc-0bc56124e5effacf1
     ec2_region: us-east-1
     ec2_image: ami-06364f70ec759cbe1
     ec2_instance_type: c4.xlarge
