@@ -9,8 +9,8 @@
     ec2_region: us-east-1
     ec2_image: ami-06364f70ec759cbe1
     ec2_instance_type: c4.xlarge
-    ec2_keypair: besst-dev
-    ec2_security_group: demo_sg
+    ec2_keypair: besst-mgmt
+    ec2_security_group: HETS-mgmt-vpn-private
     ec2_instance_count: 1
     ec2_tag: demo_video
     wait_for_port: 22
