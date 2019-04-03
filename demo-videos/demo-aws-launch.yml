@@ -29,6 +29,23 @@
      count="{{ ec2_instance_count }}"
      wait=true
     register: ec2
+    
+  - name: create dir
+     file:
+    path: /opt/dir
+    state: directory
+  - name: install httpd
+     yum:
+       name: httpd
+       state: latest
+       notify: restart httpd
+       
+     handlers:
+       - name: restart httpd
+       service:
+       name: httpd
+       state: restarted
+   
 
   - name: Wait for instances to come up
     local_action: wait_for host={{ item.public_dns_name }}
