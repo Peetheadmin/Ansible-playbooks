@@ -16,13 +16,13 @@
     wait_for_port: 22
     
  tasks:
-    - name: Create a security group
-      ec2_group:
+ - name: Create a security group
+     ec2_security_group:
         name: "{{ security_group }}"
         description: The demo security group
-        region: "{{ region }}"
-        aws_access_key: "{{ aws_access_key }}"
-        aws_secret_key: "{{ aws_secret_key }}"
+        ec2_region: "{{ region }}"
+        access_key: "{{ aws_access_key }}"
+        secret_key: "{{ aws_secret_key }}"
         rules:
           - proto: tcp
             from_port: 22
